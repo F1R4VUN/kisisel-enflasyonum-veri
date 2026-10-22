@@ -1,0 +1,19 @@
+{
+ "criteria": [
+  {"id": "REF_AREA", "label": "Reference area"},
+  {"id": "FREQ", "label": "Frequency of observation"},
+  {"id": "SINIFLAMA_DUZEYI", "label": "Classification Level"},
+  {"id": "DEGISIM", "label": "Index-Change"},
+  {"id": "BASE_PER", "label": "Base period"},
+  {"id": "COICOP_2018", "label": "COICOP 2018 (The Classification of Individual Consumption According to Purpose, 2018)"},
+  {"id": "INDICATOR", "label": "Statistical indicator"},
+  {"id": "TIME_PERIOD", "label": "Time period"}
+ ],
+ "template": {
+  "datasetId": "TR+DF_TUFE_SDMX_TT09+1.0",
+  "criteria": [
+   {"id": "REF_AREA", "filterValues": ["TR"], "type": "CodeValues", "period": 0}
+  ]
+ },
+ "timeDimension": "TIME_PERIOD"
+}
