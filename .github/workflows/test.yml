@@ -1,0 +1,35 @@
+name: test
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Birim testleri
+        run: python -m unittest discover -s tests -v
+
+  # Canlı deneme: gerçek TÜİK isteği yapar, hiçbir şey yazmaz ve commit etmez.
+  canli:
+    needs: unit
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: TÜİK canlı deneme
+        run: python scripts/tuik_fetch.py --out docs/v1/tufe.json --force --dry-run
